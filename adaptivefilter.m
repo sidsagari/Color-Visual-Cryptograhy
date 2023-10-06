@@ -13,8 +13,8 @@ fblue = filterImage(blue);
 % Combine the channels to create the RGB image
 combined_rgb_image1 = cat(3, red, green, blue);
 combined_rgb_image2 = cat(3, fred, fgreen, fblue);
-imwrite(combined_rgb_image1, 'qr_XORED.png');
-imwrite(combined_rgb_image2, 'qr_FILTERED.png');
+imwrite(combined_rgb_image1, 'XORED.png');
+imwrite(combined_rgb_image2, 'FILTERED.png');
 
 function filteredImage = filterImage(inputImage)
     % Define the window size mxn

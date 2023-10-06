@@ -5,7 +5,7 @@ from cv2 import dnn_superres
 sr = dnn_superres.DnnSuperResImpl_create()
 
 # Read image
-image = cv2.imread('doom_UPSCALED.png')
+image = cv2.imread('FILTERED.png')
 height, width, _ = image.shape
 
 # Read the desired model
@@ -19,5 +19,5 @@ result = sr.upsample(image)
 resized_image = cv2.resize(result, (width, height))
 
 # Save the enhanced image
-cv2.imwrite("doom_UPSCALED.png",result)
-cv2.imwrite("doom_ENHANCED.png",resized_image)
+#cv2.imwrite("UPSCALED.png",result)
+cv2.imwrite("ENHANCED.png",resized_image)
