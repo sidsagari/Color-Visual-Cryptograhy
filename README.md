@@ -130,19 +130,19 @@ The Project Files are licensed under MIT License.
 
 Team Members
 
-SIDDHARTH S T (B.Tech. Electronics & Communication Engineering, PES University)
+*SIDDHARTH S T (B.Tech. Electronics & Communication Engineering, PES University)*
 
-RISHITHA OTRA (B.Tech. Electronics & Communication Engineering, PES University)
+*RISHITHA OTRA (B.Tech. Electronics & Communication Engineering, PES University)*
 
-YASH SANTOSH DABKE (B.Tech. Electronics & Communication Engineering, PES University)
+*YASH SANTOSH DABKE (B.Tech. Electronics & Communication Engineering, PES University)*
 
-MANOJ S (B.Tech. Electronics & Communication Engineering, PES University)
+*MANOJ S (B.Tech. Electronics & Communication Engineering, PES University)*
 
 Project Guides
 
-Prof. Prahlad D 
-(Asst. Professor, Department of Electronics & Communication Engineering, PES University)
+**Prof. Prahlad D** 
+*(Asst. Professor, Department of Electronics & Communication Engineering, PES University)*
 
-Prof. Sangam Kumar
-(Asst. Professor, Department of Electronics & Communication Engineering, PES University)
+**Prof. Sangam Kumar**
+*(Asst. Professor, Department of Electronics & Communication Engineering, PES University)*
 
