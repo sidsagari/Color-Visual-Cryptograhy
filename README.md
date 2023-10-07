@@ -1,9 +1,9 @@
-# Project Name
+# Color Visual Cryptography (Technique Proposal)
 
 Brief project description or tagline.
 
 ## Table of Contents
-- [Project Name](#project-name)
+- [Color Visual Cryptography](#project-name)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Getting Started](#getting-started)
