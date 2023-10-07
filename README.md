@@ -7,7 +7,7 @@ Brief project description or tagline.
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
+  - [Prerequisites](#prerequisites)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
@@ -106,9 +106,7 @@ The project primarily involves running a few MATLAB and python files in a specif
 to achieve the desired result. Do make sure to read the description above to understand
 what happens in each stage of the process. Here's just the order of execution of files.
 
-
-
-### Prerequisites
+## Prerequisites
 
 MATLAB
  Image Processing Toolbox
@@ -117,11 +115,12 @@ Python3
  OpenCV-Contrib
  PyCryptoDome
  
-##License
+
+## License
 
 The Project Files are licensed under MIT License.
 
-##Acknowledgements
+## Acknowledgements
 
 Team Members
 
