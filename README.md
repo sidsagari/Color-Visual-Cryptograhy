@@ -106,6 +106,31 @@ The project primarily involves running a few MATLAB and python files in a specif
 to achieve the desired result. Do make sure to read the description above to understand
 what happens in each stage of the process. Here's just the order of execution of files.
 
+ rgbsplit.m
+    |
+    V
+ dithering.m
+    |
+    V
+ sharegenXOR.m
+    |
+    V
+ AES.py
+    |
+    V
+ XORstack.m
+    |
+    V
+ adaptivefiltering.m
+    |
+    V
+ finalview.m
+    |
+    V
+ parameter.m
+ 
+*End of Getting Started*
+
 ## Prerequisites
 
 MATLAB
