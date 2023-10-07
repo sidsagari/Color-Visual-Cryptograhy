@@ -1,7 +1,7 @@
 clear;close all;
 
 % Read an RGB image
-rgbImage1 = imread('flowers1000.png');
+rgbImage1 = imread('saxophone100.png');
 %rgbImage2 = imread('XORED.png');
 %rgbImage2 = imread('FILTERED.png'); 
 rgbImage2 = imread('ENHANCED.png'); 

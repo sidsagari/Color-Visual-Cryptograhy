@@ -1,6 +1,6 @@
 clc;clear;close all;
 
-image = imread('stage100.png'); 
+image = imread('stage200.png'); 
 
 redComponent = image(:,:,1);
 greenComponent = image(:,:,2);
