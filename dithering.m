@@ -1,10 +1,23 @@
 clc;clear;close all;
 
 inputImagePaths = {'red.png', 'green.png', 'blue.png'};
+figure;sgtitle('Floyd Steinberg Dithering');
+
 for i = 1:length(inputImagePaths)
     inputPath = inputImagePaths{i};
     outputPath = ['floyd_', inputPath];
     applyFloydSteinbergDithering(inputPath, outputPath);
+    
+    inputImage = imread(inputPath);
+    outputImage = imread(outputPath);
+    
+    subplot(2, 3, i);
+    imshow(inputImage);
+    title(inputPath, 'Interpreter', 'none');
+
+    subplot(2, 3, 3 + i);
+    imshow(outputImage);
+    title(outputPath, 'Interpreter', 'none');
 end
 
 

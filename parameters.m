@@ -1,29 +1,20 @@
 clear;close all;
 
-% Read an RGB image
-rgbImage1 = imread('saxophone100.png');
+rgbImage1 = imread('Images/flowers100.png');
 %rgbImage2 = imread('XORED.png');
 %rgbImage2 = imread('FILTERED.png'); 
-rgbImage2 = imread('ENHANCED.png'); 
-% Convert to grayscale using the luminance formula (recommended)
+%rgbImage2 = imread('ENHANCED.png');
+
 originalImage = rgb2ycbcr(rgbImage1);
 originalImage = originalImage(:,:,1);
 distortedImage = rgb2ycbcr(rgbImage2);
 distortedImage = distortedImage(:,:,1);
 
-% Calculate MSE (Mean Squared Error)
+
 mse = immse(originalImage, distortedImage);
-
-% Calculate PSNR (Peak Signal-to-Noise Ratio)
 psnr = psnr(distortedImage, originalImage);
-
-% Calculate Maximum Difference (MD)
 md = max(abs(double(originalImage(:)) - double(distortedImage(:))));
-
-% Calculate NAE (Normalized Absolute Error)
 nae = sqrt(mse) / md;
-
-% Calculate SSIM (Structural Similarity Index)
 ssimValue = ssim(distortedImage, originalImage);
 
 % Display the results
