@@ -126,7 +126,7 @@ Python3
 
 The Project Files are licensed under MIT License.
 
-## Acknowledgements
+## Acknowledgments
 
 Team Members
 
