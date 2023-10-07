@@ -1,6 +1,7 @@
 # Color Visual Cryptography (Technique Proposal)
 
-Brief project description or tagline.
+Color Visual Cryptograhy using FS Dithering with Adaptive Local Noise filtering and 
+EDSR pre-trained model to enhance Image Quality 
 
 ## Table of Contents
 - [Color Visual Cryptography](#project-name)
