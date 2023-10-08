@@ -1,8 +1,17 @@
 clc;clear;close all;
 
-input_image_path = input('Enter the path to the input binary image: ', 's');
+input_image_paths = {'floyd_red.png', 'floyd_green.png', 'floyd_blue.png'};
+
 n = input('Enter the number of shares to be generated: ');
-generate_shares(input_image_path, n);
+if n==1
+    fprintf('ERROR , number of shares should be more than 1 ');
+    return;
+end
+
+for i = 1:numel(input_image_paths)
+    generate_shares(input_image_paths{i}, n);
+end
+
 
 function generate_shares(input_image_path, n)
 

@@ -1,25 +1,36 @@
 clc;clear;close all;
 
-n = input('Enter the number of shares to XOR: ');
-first_share_file = input('Select the first share from folder: ', 's');
-input_image = imread(first_share_file);
-result = imread(first_share_file);
-
-for i = 2:n
-    share_file = input(['Select share ' num2str(i) ' from folder: '], 's');
-    share_img = imread(share_file);
-    result = bitxor(result, share_img);
+m = input('Enter the number of shares to XOR: ');
+if m==1
+    fprintf('ERROR , number of shares should be more than 1 ');
+    return;
 end
 
-prompt = sprintf('Enter the output file name (with extension): ');
-output_file_name = input(prompt, 's');
-imwrite(result,output_file_name ,'png');
+xorSharesForColorChannel('red', m, 'XORred.png');
+xorSharesForColorChannel('green', m, 'XORgreen.png');
+xorSharesForColorChannel('blue', m, 'XORblue.png');
 
-figure;
-sgtitle('XORing of Shares');
+function xorSharesForColorChannel(color, n, outputFilename)
+    first_share_file = ['floyd_' color '_share1.png'];
+    input_image = imread(first_share_file);
+    result = imread(first_share_file);
 
-subplot(1,2,1);
-imshow(input_image);title('First Share')
+    for i = 2:n
+        share_file = ['floyd_' color '_share' num2str(i) '.png'];
+        share_img = imread(share_file);
+        result = bitxor(result, share_img);
+    end
 
-subplot(1,2,2);
-imshow(result);title('XORed Output')
+    imwrite(result, outputFilename, 'png');
+
+    figure;
+    sgtitle(['XORing of ' color ' Shares']);
+
+    subplot(1, 2, 1);
+    imshow(input_image);
+    title(['First ' color ' Share']);
+
+    subplot(1, 2, 2);
+    imshow(result);
+    title(['XORed ' color ' Output']);
+end

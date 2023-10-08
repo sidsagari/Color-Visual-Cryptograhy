@@ -1,7 +1,6 @@
-clear;close all;
+clc;clear;close all;
 
-rgbImage1 = imread('Images/glass100.png');
-%rgbImage2 = imread('XORED.png');
+rgbImage1 = imread('Images/Lena256.png');
 rgbImage2 = imread('FILTERED.png'); 
 
 originalImage = rgb2ycbcr(rgbImage1);
@@ -16,7 +15,6 @@ md = max(abs(double(originalImage(:)) - double(distortedImage(:))));
 nae = sqrt(mse) / md;
 ssimValue = ssim(distortedImage, originalImage);
 
-% Display the results
 fprintf('MSE: %.3f\n', mse);
 fprintf('PSNR: %.3f dB\n', psnr);
 fprintf('MD: %.3f\n', md);

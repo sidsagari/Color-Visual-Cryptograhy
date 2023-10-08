@@ -1,10 +1,9 @@
 clc;clear;close all;
 
-Image = imread('Images/glass100.png');
+Image = imread('Images/Lena256.png');
 Output1 = imread('XORED.png');
 Output2 = imread('FILTERED.png');
 
-% Split the RGB image into its individual color channels
 red1 = Image(:,:,1);
 green1 = Image(:,:,2);
 blue1 = Image(:,:,3);
@@ -17,7 +16,6 @@ red3 = Output2(:,:,1);
 green3 = Output2(:,:,2);
 blue3 = Output2(:,:,3);
 
-% Calculate histograms for each color channel
 red_hist1 = imhist(red1);
 green_hist1 = imhist(green1);
 blue_hist1 = imhist(blue1);
@@ -30,7 +28,6 @@ red_hist3 = imhist(red3);
 green_hist3 = imhist(green3);
 blue_hist3 = imhist(blue3);
 
-% Plot the histograms
 figure;
 sgtitle('Comparison of Visual Cryptography');
 
