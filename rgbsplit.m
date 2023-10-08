@@ -1,7 +1,6 @@
 clc;clear;close all;
 
-image = imread('Images/flowers100.png'); 
-
+image = imread('Images/glass100.png');
 redComponent = image(:,:,1);
 greenComponent = image(:,:,2);
 blueComponent = image(:,:,3);

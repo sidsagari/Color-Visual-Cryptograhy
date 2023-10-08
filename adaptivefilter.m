@@ -48,4 +48,5 @@ function filteredImage = filterImage(inputImage)
     NewImg = NewImg .* (B - lmean);
     NewImg = B - NewImg;
     filteredImage = uint8(NewImg);
+    filteredImage = imgaussfilt(filteredImage, 0.85);
 end

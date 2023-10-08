@@ -1,7 +1,7 @@
 # Color Visual Cryptography (Technique Proposal)
 
-Color Visual Cryptograhy using FS Dithering with Adaptive Local Noise filtering and 
-EDSR pre-trained model to enhance Image Quality 
+Color Visual Cryptography Scheme using Floyd Steinberg Dithering with Adaptive Local Noise
+filtering and Gaussian Smoothing to enhance Image Quality 
 
 ## Table of Contents
 - [Color Visual Cryptography](#project-name)
@@ -79,16 +79,11 @@ Our method involves the following.
  
  Now we'll use an adaptive local noise filter to update the pixel values from the binary
  image. Here, each pixel value gets updated based on the noise variance and local variance
- obtained for each pixel in order. This results in a closer depiction of the grayscale
- component obtained in the initial stage.
+ obtained for each pixel in order. After which we use Gaussian Smoothing with Sigma Value 
+ of around 0.85. This results in a closer depiction of the grayscale  component obtained 
+ in the initial stage. Now when we combine these filtered components . We get a visually
+ pleasing image which resembles the original by at least around 90-95%
  
- **SuperResolution using pre-trained EDSR model (File: upscale.py & finalview.m)**
- 
- Now we'll use a Deep Learning SuperResolution Model called EDSR (Enhanced Deep Super 
- Resolution), the pre-trained model we'll be using is EDSR_x4.pb which will increase 
- resolution by 4 times along with image enhancement. We resize it back to its original 
- size by reducing 1/4. The results aren't much different visually but this improves the 
- results of various quality parameters which we shall see now in the next step.
  
  **Quality Parameter Test (File: parameters.m)**
  
@@ -117,8 +112,6 @@ what happens in each stage of the process. Here's just the order of execution of
 MATLAB
  Image Processing Toolbox
 Python3 
- OpenCV
- OpenCV-Contrib
  PyCryptoDome
  
 
