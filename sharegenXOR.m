@@ -8,8 +8,30 @@ if n==1
     return;
 end
 
+figure;
+sgtitle('Generation of Shares');
+
 for i = 1:numel(input_image_paths)
     generate_shares(input_image_paths{i}, n);
+end
+
+for i = 1:n
+
+    red_share = imread(['floyd_red_share', num2str(i), '.png']);
+    green_share = imread(['floyd_green_share', num2str(i), '.png']);
+    blue_share = imread(['floyd_blue_share', num2str(i), '.png']);
+    rgb_image = cat(3, red_share, green_share, blue_share);
+    imwrite(rgb_image, ['Share', num2str(i), '.png']);
+
+    subplot(1, n, i);
+    imshow(rgb_image);
+    title(['Share ', num2str(i)]);
+end
+
+for i = 1:n
+    delete(['floyd_red_share', num2str(i), '.png']);
+    delete(['floyd_green_share', num2str(i), '.png']);
+    delete(['floyd_blue_share', num2str(i), '.png']);
 end
 
 
@@ -41,16 +63,4 @@ function generate_shares(input_image_path, n)
     end
     
     fprintf('Shares generated successfully.\n');
-    first_share = uint8(share_arrays{1} * 255);
-
-    figure;
-    sgtitle('Share Generation');
-
-    subplot(1, 2, 1);
-    imshow(input_image);
-    title('Input Image');
-
-    subplot(1, 2, 2);
-    imshow(first_share);
-    title('First Share');
 end

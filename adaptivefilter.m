@@ -1,8 +1,10 @@
 clc;clear;close all;
 
-red = imread('XORred.png');
-green = imread('XORgreen.png');
-blue = imread('XORblue.png');
+image = imread('XORED.png');
+
+red = image(:,:,1);
+green = image(:,:,2);
+blue = image(:,:,3);
 
 fred = filterImage(red);
 fgreen = filterImage(green);
@@ -10,19 +12,18 @@ fblue = filterImage(blue);
 
 combined_rgb_image1 = cat(3, red, green, blue);
 combined_rgb_image2 = cat(3, fred, fgreen, fblue);
-imwrite(combined_rgb_image1, 'XORED.png');
 imwrite(combined_rgb_image2, 'FILTERED.png');
 
 figure;
-sgtitle('Adaptive Local Noise Filtering');
+sgtitle('Adaptive Local Noise Filtering + Gaussian Smoothing');
 
 subplot(1,2,1);
 imshow(combined_rgb_image1);
-title('Unfiltered Image');
+title('Recovered Secret Image (Unfiltered)');
 
 subplot(1,2,2);
 imshow(combined_rgb_image2);
-title('Filtered Image')
+title('Recovered Secret Image (Filtered)');
 
 function filteredImage = filterImage(inputImage)
     M = 3;

@@ -1,36 +1,42 @@
 clc;clear;close all;
 
-m = input('Enter the number of shares to XOR: ');
-if m==1
+n = input('Enter the number of shares to XOR: ');
+if n==1
     fprintf('ERROR , number of shares should be more than 1 ');
     return;
 end
 
-xorSharesForColorChannel('red', m, 'XORred.png');
-xorSharesForColorChannel('green', m, 'XORgreen.png');
-xorSharesForColorChannel('blue', m, 'XORblue.png');
-
-function xorSharesForColorChannel(color, n, outputFilename)
-    first_share_file = ['floyd_' color '_share1.png'];
-    input_image = imread(first_share_file);
-    result = imread(first_share_file);
-
-    for i = 2:n
-        share_file = ['floyd_' color '_share' num2str(i) '.png'];
-        share_img = imread(share_file);
-        result = bitxor(result, share_img);
-    end
-
-    imwrite(result, outputFilename, 'png');
-
-    figure;
-    sgtitle(['XORing of ' color ' Shares']);
-
-    subplot(1, 2, 1);
-    imshow(input_image);
-    title(['First ' color ' Share']);
-
-    subplot(1, 2, 2);
-    imshow(result);
-    title(['XORed ' color ' Output']);
+shares = cell(n, 1);
+for i = 1:n
+    shares{i} = imread(['share' num2str(i) '.png']);
 end
+
+r_xor = shares{1}(:,:,1);
+g_xor = shares{1}(:,:,2);
+b_xor = shares{1}(:,:,3);
+
+for i = 2:n
+    r_share = shares{i}(:,:,1);
+    g_share = shares{i}(:,:,2);
+    b_share = shares{i}(:,:,3);
+    
+    r_xor = bitxor(r_xor, r_share);
+    g_xor = bitxor(g_xor, g_share);
+    b_xor = bitxor(b_xor, b_share);
+end
+
+output_image = cat(3, r_xor, g_xor, b_xor);
+imwrite(output_image, 'XORED.png');
+
+figure;
+sgtitle('XORing of Shares');
+
+subplot(1,2,1);
+imshow(shares{1});
+title('Share Image');
+
+subplot(1,2,2);
+imshow(output_image);
+title('Recovered Secret Image');
+
+
