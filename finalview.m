@@ -53,34 +53,48 @@ imshow(Output1);title('Recovered Secret Image ( Unfiltered )');
 subplot(2,4,4);
 imshow(Output2);title('Recovered Secret Image ( Filtered )');
 
-
-subplot(2,4,5);
-bar(red_hist1, 'r', 'EdgeColor', 'r', 'FaceColor', 'r');
+subplot(2, 4, 5);
+plot(red_hist1, 'r', 'LineWidth', 2);
 hold on;
-bar(green_hist1, 'g', 'EdgeColor', 'g', 'FaceColor', 'g');
-bar(blue_hist1, 'b', 'EdgeColor', 'b', 'FaceColor', 'b');
+plot(green_hist1, 'g', 'LineWidth', 2);
+plot(blue_hist1, 'b', 'LineWidth', 2);
 hold off;
+grid on; 
+grid minor;
+xticks(0:51:255);
+xlim('padded'); 
 
-subplot(2,4,6);
-bar(red_hist4, 'r', 'EdgeColor', 'r', 'FaceColor', 'r');
+subplot(2, 4, 6);
+plot(red_hist4, 'r', 'LineWidth', 2);
 hold on;
-bar(green_hist4, 'g', 'EdgeColor', 'g', 'FaceColor', 'g');
-bar(blue_hist4, 'b', 'EdgeColor', 'b', 'FaceColor', 'b');
+plot(green_hist4, 'g', 'LineWidth', 2);
+plot(blue_hist4, 'b', 'LineWidth', 2);
 hold off;
+grid on; 
+grid minor;
+xticks(0:51:255);
+xlim('padded'); 
 
-subplot(2,4,7);
-bar(red_hist2, 'r', 'EdgeColor', 'r', 'FaceColor', 'r');
+
+subplot(2, 4, 7);
+plot(red_hist2, 'r', 'LineWidth', 2);
 hold on;
-bar(green_hist2, 'g', 'EdgeColor', 'g', 'FaceColor', 'g');
-bar(blue_hist2, 'b', 'EdgeColor', 'b', 'FaceColor', 'b');
+plot(green_hist2, 'g', 'LineWidth', 2);
+plot(blue_hist2, 'b', 'LineWidth', 2);
 hold off;
+grid on; 
+grid minor;
+xticks(0:51:255);
+xlim('padded'); 
+ 
 
-subplot(2,4,8);
-bar(red_hist3, 'r', 'EdgeColor', 'r', 'FaceColor', 'r');
+subplot(2, 4, 8);
+plot(red_hist3, 'r', 'LineWidth', 2);
 hold on;
-bar(green_hist3, 'g', 'EdgeColor', 'g', 'FaceColor', 'g');
-bar(blue_hist3, 'b', 'EdgeColor', 'b', 'FaceColor', 'b');
+plot(green_hist3, 'g', 'LineWidth', 2);
+plot(blue_hist3, 'b', 'LineWidth', 2);
 hold off;
-
-
-
+grid on; 
+grid minor;
+xticks(0:51:255);
+xlim('padded'); 

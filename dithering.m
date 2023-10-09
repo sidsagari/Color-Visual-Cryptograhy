@@ -7,18 +7,21 @@ for i = 1:length(inputImagePaths)
     inputPath = inputImagePaths{i};
     outputPath = ['floyd_', inputPath];
     applyFloydSteinbergDithering(inputPath, outputPath);
-    
-    inputImage = imread(inputPath);
+ 
     outputImage = imread(outputPath);
-    
     subplot(2, 3, i);
-    imshow(inputImage);
-    title(inputPath, 'Interpreter', 'none');
-
-    subplot(2, 3, 3 + i);
     imshow(outputImage);
     title(outputPath, 'Interpreter', 'none');
+
 end
+
+r = imread('floyd_red.png');
+g = imread('floyd_green.png');
+b = imread('floyd_blue.png');
+rgb = cat(3,r,g,b);
+
+subplot(2,1,2);
+imshow(rgb);title('Color Dithered Image');
 
 
 function applyFloydSteinbergDithering(inputImagePath, outputImagePath)

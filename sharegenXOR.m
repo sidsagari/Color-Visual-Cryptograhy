@@ -3,10 +3,13 @@ clc;clear;close all;
 input_image_paths = {'floyd_red.png', 'floyd_green.png', 'floyd_blue.png'};
 
 n = input('Enter the number of shares to be generated: ');
-if n==1
+if n<=1
     fprintf('ERROR , number of shares should be more than 1 ');
     return;
 end
+
+subplot_rows = ceil(n / 5); 
+subplot_cols = min(n, 5);   
 
 figure;
 sgtitle('Generation of Shares');
@@ -23,7 +26,10 @@ for i = 1:n
     rgb_image = cat(3, red_share, green_share, blue_share);
     imwrite(rgb_image, ['Share', num2str(i), '.png']);
 
-    subplot(1, n, i);
+    row = ceil(i / subplot_cols);
+    col = mod(i - 1, subplot_cols) + 1;
+
+    subplot(subplot_rows, subplot_cols, i);
     imshow(rgb_image);
     title(['Share ', num2str(i)]);
 end

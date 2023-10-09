@@ -1,7 +1,7 @@
 clc;clear;close all;
 
 n = input('Enter the number of shares to XOR: ');
-if n==1
+if n<=1
     fprintf('ERROR , number of shares should be more than 1 ');
     return;
 end
