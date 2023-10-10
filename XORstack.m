@@ -25,8 +25,14 @@ for i = 2:n
     b_xor = bitxor(b_xor, b_share);
 end
 
-output_image = cat(3, r_xor, g_xor, b_xor);
-imwrite(output_image, 'XORED.png');
+if isequal(r_xor,g_xor) && isequal(g_xor,b_xor)
+    output_image = r_xor;
+    imwrite(output_image, 'XORED.png');
+else
+    output_image = cat(3, r_xor, g_xor, b_xor);
+    imwrite(output_image, 'XORED.png');
+end
+
 
 figure;
 sgtitle('XORing of Shares');

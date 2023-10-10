@@ -1,6 +1,6 @@
 clc;clear;close all;
 
-input_image_paths = {'floyd_red.png', 'floyd_green.png', 'floyd_blue.png'};
+input_image_paths = {'d_red.png', 'd_green.png', 'd_blue.png'};
 
 n = input('Enter the number of shares to be generated: ');
 if n<=1
@@ -20,9 +20,9 @@ end
 
 for i = 1:n
 
-    red_share = imread(['floyd_red_share', num2str(i), '.png']);
-    green_share = imread(['floyd_green_share', num2str(i), '.png']);
-    blue_share = imread(['floyd_blue_share', num2str(i), '.png']);
+    red_share = imread(['d_red_share', num2str(i), '.png']);
+    green_share = imread(['d_green_share', num2str(i), '.png']);
+    blue_share = imread(['d_blue_share', num2str(i), '.png']);
     rgb_image = cat(3, red_share, green_share, blue_share);
     imwrite(rgb_image, ['Share', num2str(i), '.png']);
 
@@ -35,9 +35,9 @@ for i = 1:n
 end
 
 for i = 1:n
-    delete(['floyd_red_share', num2str(i), '.png']);
-    delete(['floyd_green_share', num2str(i), '.png']);
-    delete(['floyd_blue_share', num2str(i), '.png']);
+    delete(['d_red_share', num2str(i), '.png']);
+    delete(['d_green_share', num2str(i), '.png']);
+    delete(['d_blue_share', num2str(i), '.png']);
 end
 
 

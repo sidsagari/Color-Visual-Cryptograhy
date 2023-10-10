@@ -1,9 +1,67 @@
 clc;clear;close all;
 
-Image = imread('Images/Lena512.png');
+figure;
+sgtitle('Comparison of Visual Cryptography Images ( with Color Distribution )');
+
+Image = imread('Images/Stage1000.png');
 Output1 = imread('XORED.png');
 Output2 = imread('FILTERED.png');
 Output3 = imread('Share1.png');
+
+if(size(Image, 3) == 1)
+    hist1 = imhist(Image);
+    hist2 = imhist(Output1);
+    hist3 = imhist(Output2);
+    hist4 = imhist(Output3);
+
+    subplot(2,4,1);
+    imshow(Image);title('Original Secret Image');
+
+    subplot(2,4,2);
+    imshow(im2gray(Output3));title('Share Image');
+
+    subplot(2,4,3);
+    imshow(Output1);title('Recovered Secret Image ( Unfiltered )');
+
+    subplot(2,4,4);
+    imshow(Output2);title('Recovered Secret Image ( Filtered )');
+    
+    subplot(2,4,5);
+    plot(hist1,'LineWidth', 2);
+    xlabel('Pixel Value (Intensity)');
+    ylabel('Frequency');
+    grid on; 
+    grid minor;
+    xticks(0:51:255);
+    xlim('padded'); 
+    
+    subplot(2,4,6);
+    plot(hist2,'LineWidth', 2);
+    xlabel('Pixel Value (Intensity)');
+    ylabel('Frequency');
+    grid on; 
+    grid minor;
+    xticks(0:51:255);
+    xlim('padded');
+
+    subplot(2,4,7);
+    plot(hist4,'LineWidth', 2);
+    xlabel('Pixel Value (Intensity)');
+    ylabel('Frequency');
+    grid on; 
+    grid minor;
+    xticks(0:51:255);
+    xlim('padded');
+
+    subplot(2,4,8);
+    plot(hist3,'LineWidth', 2);
+    xlabel('Pixel Value (Intensity)');
+    ylabel('Frequency');
+    grid on; 
+    grid minor;
+    xticks(0:51:255);
+    xlim('padded');
+else
 
 red1 = Image(:,:,1);
 green1 = Image(:,:,2);
@@ -38,9 +96,6 @@ green_hist4 = imhist(green4);
 blue_hist4 = imhist(blue4);
 
 
-figure;
-sgtitle('Comparison of Visual Cryptography Images ( with Color Distribution )');
-
 subplot(2,4,1);
 imshow(Image);title('Original Secret Image');
 
@@ -59,6 +114,8 @@ hold on;
 plot(green_hist1, 'g', 'LineWidth', 2);
 plot(blue_hist1, 'b', 'LineWidth', 2);
 hold off;
+xlabel('Pixel Value (Intensity)');
+ylabel('Frequency')
 grid on; 
 grid minor;
 xticks(0:51:255);
@@ -70,6 +127,8 @@ hold on;
 plot(green_hist4, 'g', 'LineWidth', 2);
 plot(blue_hist4, 'b', 'LineWidth', 2);
 hold off;
+xlabel('Pixel Value (Intensity)');
+ylabel('Frequency')
 grid on; 
 grid minor;
 xticks(0:51:255);
@@ -82,6 +141,8 @@ hold on;
 plot(green_hist2, 'g', 'LineWidth', 2);
 plot(blue_hist2, 'b', 'LineWidth', 2);
 hold off;
+xlabel('Pixel Value (Intensity)');
+ylabel('Frequency')
 grid on; 
 grid minor;
 xticks(0:51:255);
@@ -94,7 +155,10 @@ hold on;
 plot(green_hist3, 'g', 'LineWidth', 2);
 plot(blue_hist3, 'b', 'LineWidth', 2);
 hold off;
+xlabel('Pixel Value (Intensity)');
+ylabel('Frequency')
 grid on; 
 grid minor;
 xticks(0:51:255);
 xlim('padded'); 
+end

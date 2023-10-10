@@ -2,28 +2,38 @@ clc;clear;close all;
 
 image = imread('XORED.png');
 
-red = image(:,:,1);
-green = image(:,:,2);
-blue = image(:,:,3);
-
-fred = filterImage(red);
-fgreen = filterImage(green);
-fblue = filterImage(blue);
-
-combined_rgb_image1 = cat(3, red, green, blue);
-combined_rgb_image2 = cat(3, fred, fgreen, fblue);
-imwrite(combined_rgb_image2, 'FILTERED.png');
-
 figure;
-sgtitle('Adaptive Local Noise Filtering + Gaussian Smoothing');
+sgtitle('Adaptive Local Noise Filtering');
+
+PSF = fspecial('gaussian', [5 5], 1);
+gimage = imfilter(image, PSF, 'conv', 'circular');
+gimage = imsharpen(gimage,'Radius',2,'Amount',0.4);
+
+if size(image, 3) == 1
+    fred = filterImage(gimage);
+    combined_rgb_image = fred;
+    imwrite(fred,'FILTERED.png');
+else
+   red = gimage(:,:,1);
+   green = gimage(:,:,2);
+   blue = gimage(:,:,3);
+
+   fred = filterImage(red);
+   fgreen = filterImage(green);
+   fblue = filterImage(blue);
+
+   combined_rgb_image = cat(3, fred, fgreen, fblue);
+   imwrite(combined_rgb_image, 'FILTERED.png');
+end
 
 subplot(1,2,1);
-imshow(combined_rgb_image1);
-title('Recovered Secret Image (Unfiltered)');
+imshow(image);
+title('Recovered Secret Image ( XORed )');
 
 subplot(1,2,2);
-imshow(combined_rgb_image2);
-title('Recovered Secret Image (Filtered)');
+imshow(combined_rgb_image);
+title('Recovered Secret Image ( Filtered )');
+
 
 function filteredImage = filterImage(inputImage)
     M = 3;
@@ -49,5 +59,4 @@ function filteredImage = filterImage(inputImage)
     NewImg = NewImg .* (B - lmean);
     NewImg = B - NewImg;
     filteredImage = uint8(NewImg);
-    filteredImage = imgaussfilt(filteredImage, 0.85);
 end
