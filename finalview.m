@@ -3,7 +3,7 @@ clc;clear;close all;
 figure;
 sgtitle('Comparison of Visual Cryptography Images ( with Color Distribution )');
 
-Image = imread('Images/Stage1000.png');
+Image = imread('Images/flowers1000.png');
 Output1 = imread('XORED.png');
 Output2 = imread('FILTERED.png');
 Output3 = imread('Share1.png');

@@ -1,6 +1,6 @@
 clc; clear; close all;
 
-rgbImage1 = imread('Images/Stage1000.png');
+rgbImage1 = imread('Images/flowers1000.png');
 rgbImage2 = imread('FILTERED.png'); 
 
 if size(rgbImage1, 3) == 1

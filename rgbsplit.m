@@ -1,6 +1,6 @@
 clc;clear;close all;
 
-image = imread('Images/Stage1000.png');
+image = imread('Images/flowers1000.png');
 
 figure;
 sgtitle('RGB Splitting');
