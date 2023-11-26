@@ -1,4 +1,4 @@
-clc; clear; close all;
+clc;clear;close all;
 
 [filename, filepath] = uigetfile({'*.jpg;*.png;*.bmp;*.tif', 'Image Files (*.jpg, *.png, *.bmp, *.tif)'; '*.*', 'All Files (*.*)'}, 'Select an image');
 if isequal(filename, 0)
@@ -25,8 +25,10 @@ squared_diff = (double(originalImage) - double(distortedImage)).^2;
 mse = sum(squared_diff(:)) / (numel(double(originalImage)));
 psnr = 10 * log10((255^2) / mse);
 md = max(abs(double(originalImage(:)) - double(distortedImage(:))));
-nae = sqrt(mse) / md;
+nae = sum(abs(double(originalImage) - double(distortedImage))) / sum(double(originalImage));
 ssimValue = ssim(distortedImage, originalImage);
+
+%nae = sqrt(mse) / md;
 
 figure;
 axis off;
