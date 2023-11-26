@@ -27,6 +27,8 @@ psnr = 10 * log10((255^2) / mse);
 md = max(abs(double(originalImage(:)) - double(distortedImage(:))));
 nae = sum(abs(double(originalImage) - double(distortedImage))) / sum(double(originalImage));
 nae2 = sum(abs(originalImage - distortedImage)) / sum(originalImage);
+ncc = sum(abs(double(originalImage) .* double(distortedImage))) / sum((double(originalImage)).^2);
+%ncc = sum(abs(originalImage .* distortedImage)) / sum((originalImage).^2);
 ssimValue = ssim(distortedImage, originalImage);
 
 %nae = sqrt(mse) / md;
@@ -39,4 +41,5 @@ text(0.1, 0.8, sprintf('PSNR: %.3f dB', psnr),'FontSize',16);
 text(0.1, 0.7, sprintf('MD: %.3f', md),'FontSize',16);
 text(0.1, 0.6, sprintf('NAE (double): %.3f', nae),'FontSize',16);
 text(0.1, 0.5, sprintf('NAE (uint8): %.3f', nae2),'FontSize',16);
-text(0.1, 0.4, sprintf('SSIM: %.3f', ssimValue),'FontSize',16);
+text(0.1, 0.4, sprintf('NCC: %.3f', ncc),'FontSize',16);
+text(0.1, 0.3, sprintf('SSIM: %.3f', ssimValue),'FontSize',16);
