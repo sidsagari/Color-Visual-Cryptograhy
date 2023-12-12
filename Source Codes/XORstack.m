@@ -6,6 +6,8 @@ if n<=1
     return;
 end
 
+tic
+
 shares = cell(n, 1);
 for i = 1:n
     shares{i} = imread(['share' num2str(i) '.png']);
@@ -45,4 +47,4 @@ subplot(1,2,2);
 imshow(output_image);
 title('Recovered Secret Image');
 
-
+timeElapsed = toc

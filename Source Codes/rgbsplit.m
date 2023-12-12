@@ -6,6 +6,8 @@ if isequal(filename, 0)
     return;
 end
 
+tic
+
 image = imread(fullfile(filepath, filename));
 
 figure;
@@ -45,3 +47,5 @@ else
     imwrite(greenComponent, 'green.png');
     imwrite(blueComponent, 'blue.png');
 end
+
+timeElapsed = toc

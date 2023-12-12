@@ -8,6 +8,8 @@ if n<=1
     return;
 end
 
+tic
+
 subplot_rows = ceil(n / 5); 
 subplot_cols = min(n, 5);   
 
@@ -40,6 +42,7 @@ for i = 1:n
     delete(['d_blue_share', num2str(i), '.png']);
 end
 
+timeElapsed = toc
 
 function generate_shares(input_image_path, n)
 

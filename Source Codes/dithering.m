@@ -1,5 +1,7 @@
 clc;clear;close all;
 
+tic
+
 red = imread('red.png');
 green = imread('green.png');
 blue = imread('blue.png');
@@ -37,6 +39,8 @@ else
     imwrite(dgreen,'d_green.png');
     imwrite(dblue,'d_blue.png');
 end
+
+timeElapsed = toc
 
 function ditheredImage = applyFloydSteinbergDithering(inputChannel)
     inputImage = double(inputChannel);

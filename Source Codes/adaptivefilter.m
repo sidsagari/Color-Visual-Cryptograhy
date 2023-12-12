@@ -1,5 +1,7 @@
 clc;clear;close all;
 
+tic
+
 image = imread('XORED.png');
 
 figure;
@@ -34,6 +36,7 @@ subplot(1,2,2);
 imshow(combined_rgb_image);
 title('Recovered Secret Image ( Filtered )');
 
+timeElapsed = toc
 
 function filteredImage = filterImage(inputImage)
     M = 3;
@@ -60,3 +63,4 @@ function filteredImage = filterImage(inputImage)
     NewImg = B - NewImg;
     filteredImage = uint8(NewImg);
 end
+
